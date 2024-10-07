@@ -1,9 +1,0 @@
-## Name of the node
--name cstasks1@127.0.0.1
-
-## Cookie for distributed erlang
--setcookie SomeRandomAlphaNumericString1986
-
-## Specifies whether Erlang should start epmd on startup.
-## By default this is true, but if you prefer to start epmd manually, set this to false.
--start_epmd true

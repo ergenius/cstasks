@@ -1,5 +1,6 @@
 %% API Cowboy HTTP handler
 -module(cs_http_handler_api).
+-author("Madalin Grigore-Enescu").
 
 -include("cstasks.hrl").
 

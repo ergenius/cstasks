@@ -10,6 +10,7 @@
 %% a paranoic validation of the request using recursive functions and binaries.
 %% Because I must say it's a hobby of mine NOT to use regex :)
 -module(cs_http_handler_www).
+-author("Madalin Grigore-Enescu").
 
 -include("cstasks.hrl").
 
