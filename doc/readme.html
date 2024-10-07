@@ -194,93 +194,93 @@ a 400 Bad Request for the existing API routes).</p><h3 id="sort-json" class="sec
   </a>
   <span class="text">Sort JSON</span>
 </h3>
-<p>Request:</p><ul><li>URL: <a href="http://localhost:1986/api/v1/sort/json">http://localhost:1986/api/v1/sort/json</a></li><li>Method: POST</li><li>No special headers are required</li><li>Request body example (JSON):<pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="2175798167-1">{</span><span class="w">
-</span><span class="s">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2175798167-2">[</span><span class="w">
-</span><span class="p" data-group-id="2175798167-3">{</span><span class="w">
+<p>Request:</p><ul><li>URL: <a href="http://localhost:1986/api/v1/sort/json">http://localhost:1986/api/v1/sort/json</a></li><li>Method: POST</li><li>No special headers are required</li><li>Request body example (JSON):<pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="1515895751-1">{</span><span class="w">
+</span><span class="s">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1515895751-2">[</span><span class="w">
+</span><span class="p" data-group-id="1515895751-3">{</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
-</span><span class="p" data-group-id="2175798167-3">}</span><span class="p">,</span><span class="w">
-</span><span class="p" data-group-id="2175798167-4">{</span><span class="w">
+</span><span class="p" data-group-id="1515895751-3">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="1515895751-4">{</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2175798167-5">[</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1515895751-5">[</span><span class="w">
 </span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-3&quot;</span><span class="w">
-</span><span class="err">	</span><span class="p" data-group-id="2175798167-5">]</span><span class="w">
-</span><span class="p" data-group-id="2175798167-4">}</span><span class="p">,</span><span class="w">
-</span><span class="p" data-group-id="2175798167-6">{</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="1515895751-5">]</span><span class="w">
+</span><span class="p" data-group-id="1515895751-4">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="1515895751-6">{</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2175798167-7">[</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1515895751-7">[</span><span class="w">
 </span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-1&quot;</span><span class="w">
-</span><span class="err">	</span><span class="p" data-group-id="2175798167-7">]</span><span class="w">
-</span><span class="p" data-group-id="2175798167-6">}</span><span class="p">,</span><span class="w">
-</span><span class="p" data-group-id="2175798167-8">{</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="1515895751-7">]</span><span class="w">
+</span><span class="p" data-group-id="1515895751-6">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="1515895751-8">{</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2175798167-9">[</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1515895751-9">[</span><span class="w">
 </span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
 </span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-3&quot;</span><span class="w">
-</span><span class="err">	</span><span class="p" data-group-id="2175798167-9">]</span><span class="w">
-</span><span class="p" data-group-id="2175798167-8">}</span><span class="w">
-</span><span class="p" data-group-id="2175798167-2">]</span><span class="w">
-</span><span class="p" data-group-id="2175798167-1">}</span></code></pre></li></ul><p>Response example:</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="5700580722-1">{</span><span class="w">
-  </span><span class="s">&quot;tasks&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5700580722-2">[</span><span class="w">
-    </span><span class="p" data-group-id="5700580722-3">{</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="1515895751-9">]</span><span class="w">
+</span><span class="p" data-group-id="1515895751-8">}</span><span class="w">
+</span><span class="p" data-group-id="1515895751-2">]</span><span class="w">
+</span><span class="p" data-group-id="1515895751-1">}</span></code></pre></li></ul><p>Response example:</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="9469534842-1">{</span><span class="w">
+  </span><span class="s">&quot;tasks&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9469534842-2">[</span><span class="w">
+    </span><span class="p" data-group-id="9469534842-3">{</span><span class="w">
       </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
       </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
-    </span><span class="p" data-group-id="5700580722-3">}</span><span class="p">,</span><span class="w">
-    </span><span class="p" data-group-id="5700580722-4">{</span><span class="w">
+    </span><span class="p" data-group-id="9469534842-3">}</span><span class="p">,</span><span class="w">
+    </span><span class="p" data-group-id="9469534842-4">{</span><span class="w">
       </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
       </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="w">
-    </span><span class="p" data-group-id="5700580722-4">}</span><span class="p">,</span><span class="w">
-    </span><span class="p" data-group-id="5700580722-5">{</span><span class="w">
+    </span><span class="p" data-group-id="9469534842-4">}</span><span class="p">,</span><span class="w">
+    </span><span class="p" data-group-id="9469534842-5">{</span><span class="w">
       </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
       </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="w">
-    </span><span class="p" data-group-id="5700580722-5">}</span><span class="p">,</span><span class="w">
-    </span><span class="p" data-group-id="5700580722-6">{</span><span class="w">
+    </span><span class="p" data-group-id="9469534842-5">}</span><span class="p">,</span><span class="w">
+    </span><span class="p" data-group-id="9469534842-6">{</span><span class="w">
       </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
       </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="w">
-    </span><span class="p" data-group-id="5700580722-6">}</span><span class="w">
-  </span><span class="p" data-group-id="5700580722-2">]</span><span class="p">,</span><span class="w">
+    </span><span class="p" data-group-id="9469534842-6">}</span><span class="w">
+  </span><span class="p" data-group-id="9469534842-2">]</span><span class="p">,</span><span class="w">
   </span><span class="s">&quot;sort_time_milliseconds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">416</span><span class="w">
-</span><span class="p" data-group-id="5700580722-1">}</span></code></pre><h3 id="sort-bash" class="section-heading">
+</span><span class="p" data-group-id="9469534842-1">}</span></code></pre><h3 id="sort-bash" class="section-heading">
   <a href="#sort-bash" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Sort BASH</span>
 </h3>
-<ul><li>URL: <a href="http://localhost:1986/api/v1/sort/bash">http://localhost:1986/api/v1/sort/bash</a></li><li>Method: POST</li><li>No special headers are required</li><li>Request body example (JSON):<pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="3408192593-1">{</span><span class="w">
-</span><span class="s">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3408192593-2">[</span><span class="w">
-</span><span class="p" data-group-id="3408192593-3">{</span><span class="w">
+<ul><li>URL: <a href="http://localhost:1986/api/v1/sort/bash">http://localhost:1986/api/v1/sort/bash</a></li><li>Method: POST</li><li>No special headers are required</li><li>Request body example (JSON):<pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="1165553623-1">{</span><span class="w">
+</span><span class="s">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1165553623-2">[</span><span class="w">
+</span><span class="p" data-group-id="1165553623-3">{</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
-</span><span class="p" data-group-id="3408192593-3">}</span><span class="p">,</span><span class="w">
-</span><span class="p" data-group-id="3408192593-4">{</span><span class="w">
+</span><span class="p" data-group-id="1165553623-3">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="1165553623-4">{</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3408192593-5">[</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1165553623-5">[</span><span class="w">
 </span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-3&quot;</span><span class="w">
-</span><span class="err">	</span><span class="p" data-group-id="3408192593-5">]</span><span class="w">
-</span><span class="p" data-group-id="3408192593-4">}</span><span class="p">,</span><span class="w">
-</span><span class="p" data-group-id="3408192593-6">{</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="1165553623-5">]</span><span class="w">
+</span><span class="p" data-group-id="1165553623-4">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="1165553623-6">{</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3408192593-7">[</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1165553623-7">[</span><span class="w">
 </span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-1&quot;</span><span class="w">
-</span><span class="err">	</span><span class="p" data-group-id="3408192593-7">]</span><span class="w">
-</span><span class="p" data-group-id="3408192593-6">}</span><span class="p">,</span><span class="w">
-</span><span class="p" data-group-id="3408192593-8">{</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="1165553623-7">]</span><span class="w">
+</span><span class="p" data-group-id="1165553623-6">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="1165553623-8">{</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
 </span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3408192593-9">[</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1165553623-9">[</span><span class="w">
 </span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
 </span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-3&quot;</span><span class="w">
-</span><span class="err">	</span><span class="p" data-group-id="3408192593-9">]</span><span class="w">
-</span><span class="p" data-group-id="3408192593-8">}</span><span class="w">
-</span><span class="p" data-group-id="3408192593-2">]</span><span class="w">
-</span><span class="p" data-group-id="3408192593-1">}</span></code></pre></li></ul><p>Response example:</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="1501616914-1">{</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="1165553623-9">]</span><span class="w">
+</span><span class="p" data-group-id="1165553623-8">}</span><span class="w">
+</span><span class="p" data-group-id="1165553623-2">]</span><span class="w">
+</span><span class="p" data-group-id="1165553623-1">}</span></code></pre></li></ul><p>Response example:</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="9888075440-1">{</span><span class="w">
   </span><span class="s">&quot;bash&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#!/usr/bin/env bash\ntouch /tmp/file1\necho &#39;Hello World!&#39; &gt; /tmp/file1\ncat /tmp/file1\nrm /tmp/file1\n&quot;</span><span class="w">
-</span><span class="p" data-group-id="1501616914-1">}</span></code></pre><h2 id="testing-with-eunit" class="section-heading">
+</span><span class="p" data-group-id="9888075440-1">}</span></code></pre><h2 id="testing-with-eunit" class="section-heading">
   <a href="#testing-with-eunit" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
