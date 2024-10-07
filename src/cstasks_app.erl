@@ -14,7 +14,6 @@ start(_Type, _Args) ->
     {ok, _} = application:ensure_all_started(public_key),
     {ok, _} = application:ensure_all_started(crypto),
     {ok, _} = application:ensure_all_started(cowboy),
-    {ok, _} = application:ensure_all_started(esqlite),
 
     %% Create ets used all over the place
     [ets:new(TableName, TableSpecs) || {TableName, TableSpecs} <- ?CS_ETS_TABLES],
