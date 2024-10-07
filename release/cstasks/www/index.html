@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hello Bulma!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <style>
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: 100;
+        display: none;
+      }
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="has-navbar-fixed-bottom">
+    <div id="loader-api" class="loader"></div>
+    <section class="section">
+      <div class="block">
+        <div class="checkboxes">
+          <label class="checkbox">
+            <input id="api-option-allow-multiple-source" type="checkbox" />
+            Allow more than 1 source vertice
+          </label>
+          <label class="checkbox">
+            <input id="api-option-allow-disconnected" type="checkbox" />
+            Allow disconected vertices
+          </label>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="container">
+            <div class="field">
+              <label class="label">API request body JSON</label>
+              <div class="control">
+                <textarea
+                  id="request-body-textarea"
+                  class="textarea"
+                  placeholder=""
+                  rows="16"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="container">
+            <div class="field">
+              <label class="label">API response</label>
+              <div class="control">
+                <textarea
+                  id="response-body-textarea"
+                  class="textarea"
+                  placeholder=""
+                  rows="16"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navbar -->
+    <nav
+      class="navbar is-dark is-fixed-bottom"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-start">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a id="navbar-button-reset" class="button is-danger"
+              ><strong>Reset to default test</strong></a
+            >
+          </div>
+        </div>
+        <div class="navbar-item">
+          <div class="buttons">
+            <a id="navbar-button-pretify" class="button is-success"
+              ><strong>Pretify JSON</strong></a
+            >
+          </div>
+        </div>
+        <div class="navbar-item">
+          <div class="buttons">
+            <a id="navbar-button-call-api-json" class="button is-warning"
+              ><strong>Call sort API</strong></a
+            >
+          </div>
+        </div>
+        <div class="navbar-item">
+          <div class="buttons">
+            <a id="navbar-button-call-api-bash" class="button is-info"
+              ><strong>Call bash script API</strong></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="navbar-end"></div>
+    </nav>
+
+    <!-- Javascripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // I chosed to write plain old Javascript with jQuery.
+      // One advantage of this approach is the solution reviewer
+      // will not need to build/install anything and it's very easy to understand
+      var Cstasks = {
+        CS_API_BASE_URL: "http://localhost:1986/api/v1/",
+
+        CS_DEFAULT_TEST:
+          '{"tasks":[{"name":"task-1","command":"touch /tmp/file1"},{"name":"task-2","command":"cat /tmp/file1","requires":["task-3"]},{"name":"task-3","command":"echo \'Hello World!\' > /tmp/file1","requires":["task-1"]},{"name":"task-4","command":"rm /tmp/file1","requires":["task-2","task-3"]}]}',
+
+        apiUrl: function (Path) {
+          return Cstasks.CS_API_BASE_URL + Path;
+        },
+
+        loaderShow: function () {
+          $("#loader-api").show();
+        },
+
+        loaderHide: function () {
+          $("#loader-api").hide();
+        },
+
+        apiUnserializeResponse: function (data) {
+          try {
+            return JSON.parse(data);
+          } catch (e) {
+            alert("Invalid or unknown API response body (JSON.parse failed)!");
+            return false;
+          }
+        },
+
+        apiSortJson: function () {
+          var requestBody = Cstasks.getRequestBody();
+          if (requestBody === false) {
+            return;
+          }
+          Cstasks.loaderShow();
+          $("#response-body-textarea").val("");
+          var apiUrl = Cstasks.apiUrl("sort/json");
+          $.ajax({
+            url: apiUrl,
+            type: "POST",
+            contentType: "application/json",
+            data: requestBody,
+            success: function (response) {
+              $("#response-body-textarea").val(
+                JSON.stringify(response, null, "  ")
+              );
+              Cstasks.loaderHide();
+            },
+            error: function (xhr, status, error) {
+              console.error("Error:", xhr.status, error);
+              alert(
+                "An error occurred trying to call " + apiUrl + " : " + error
+              );
+            },
+          });
+        },
+
+        apiSortBash: function () {
+          var requestBody = Cstasks.getRequestBody();
+          if (requestBody === false) {
+            return;
+          }
+          Cstasks.loaderShow();
+          $("#response-body-textarea").val("");
+
+          var apiUrl = Cstasks.apiUrl("sort/bash");
+          $.ajax({
+            url: apiUrl,
+            type: "POST",
+            contentType: "application/json",
+            data: requestBody,
+            success: function (response) {
+              var responseText = JSON.stringify(response, null, "  ");
+              $("#response-body-textarea").val(responseText);
+              // Didn't had much time to test dinamically downloading the file
+              // so let's do a catch here
+              try {
+                var unserializedData = Cstasks.apiUnserializeResponse(responseText);
+                if (
+                  unserializedData !== false &&
+                  Object.hasOwn(unserializedData, "bash")
+                ) {
+                  var text = unserializedData.bash;
+                  var filename = "cstasks.sh";
+                  Cstasks.download(filename, text);
+                }
+              } catch (e) {}
+              Cstasks.loaderHide();
+            },
+            error: function (xhr, status, error) {
+              console.error("Error:", xhr.status, error);
+              alert(
+                "An error occurred trying to call " + apiUrl + " : " + error
+              );
+            },
+          });
+        },
+
+        getAllowMultipleSources: function () {
+          return $("#api-option-allow-multiple-source").is(":checked");
+        },
+
+        getAllowDisconnected: function () {
+          return $("#api-option-allow-disconnected").is(":checked");
+        },
+
+        getRequestBody: function () {
+          try {
+            var str = $("#request-body-textarea").val();
+            var parsedJson = JSON.parse(str);
+            parsedJson["allow_multiple_sources"] =
+              Cstasks.getAllowMultipleSources();
+            parsedJson["allow_disconnected"] = Cstasks.getAllowDisconnected();
+            return JSON.stringify(parsedJson);
+          } catch (e) {
+            alert(
+              "Invalid API request body (JSON.parse failed)! Please check the input..."
+            );
+            return false;
+          }
+        },
+
+        jsonPretify: function (str) {
+          try {
+            return JSON.stringify(JSON.parse(str), null, "\t");
+          } catch (e) {
+            alert(
+              "Invalid API request body (JSON.parse failed)! Please check the input..."
+            );
+            return str;
+          }
+        },
+
+        download: function (filename, text) {
+          var element = document.createElement("a");
+          element.setAttribute(
+            "href",
+            "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+          );
+          element.setAttribute("download", filename);
+          element.style.display = "none";
+          document.body.appendChild(element);
+          element.click();
+          document.body.removeChild(element);
+        },
+      };
+
+      // Run after doom is ready
+      $(document).ready(function () {
+        $("#navbar-button-reset").on("click", function () {
+          var pretyJson = Cstasks.jsonPretify(Cstasks.CS_DEFAULT_TEST);
+          $("#request-body-textarea").val(pretyJson);
+        });
+        $("#navbar-button-pretify").on("click", function () {
+          var textareaSelector = $("#request-body-textarea");
+          var pretyJson = Cstasks.jsonPretify(textareaSelector.val());
+          textareaSelector.val(pretyJson);
+        });
+        $("#navbar-button-call-api-json").on("click", function () {
+          Cstasks.apiSortJson();
+        });
+        $("#navbar-button-call-api-bash").on("click", function () {
+          Cstasks.apiSortBash();
+        });
+      });
+    </script>
+  </body>
+</html>

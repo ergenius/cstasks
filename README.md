@@ -26,7 +26,7 @@ A release is already included into the repo into the /release directory.
 
 ## Running the solution
 
-Change directory to the /release/cstaks/bin directory and run
+Change directory to the _build/default/rel/cstasks/bin directory and run
 ```
 $ ./cstasks console
 ```
