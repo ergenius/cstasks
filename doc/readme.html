@@ -14,7 +14,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-AB896366.js"></script>
+    <script src="dist/sidebar_items-5889550A.js"></script>
     <script src="docs_config.js"></script>
     <script async src="dist/html-BHYOTRCH.js"></script>
 
@@ -128,17 +128,17 @@ Pages
   </a>
   <span class="text">Build</span>
 </h2>
-<p>The solution is using rebar3. A makefile is also provided.
+<p>The solution is using rebar3. A Makefile is also provided.
 Development took place using OTP 26 release on Ubuntu 22.04.
-Unofficially, you may be able to use this project with older Erlang versions. No guarantee included.</p><p>Only one command, compile, is required to fetch dependencies and compile:</p><ul><li>make compile 
-or</li><li>rebar3 compile</li></ul><p>Create a release:</p><ul><li>make release
-or</li><li>rebar3 release</li></ul><p>A release is already included into the repo into the /release directory.</p><h2 id="running-the-solution" class="section-heading">
+Unofficially, you may be able to use this project with older Erlang versions. No guarantee included.</p><p>Only one command, compile, is required to fetch dependencies and compile (use either make or rebar3):</p><pre><code class="makeup erlang" translate="no"><span class="ss">make</span><span class="w"> </span><span class="ss">compile</span><span class="w"> 
+</span><span class="ss">rebar3</span><span class="w"> </span><span class="ss">compile</span></code></pre><p>Create a release:</p><pre><code class="makeup erlang" translate="no"><span class="ss">make</span><span class="w"> </span><span class="ss">release</span><span class="w">
+</span><span class="ss">rebar3</span><span class="w"> </span><span class="ss">release</span></code></pre><p>A release is already included into the repo into the /release directory.</p><h2 id="running-the-solution" class="section-heading">
   <a href="#running-the-solution" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Running the solution</span>
 </h2>
-<p>Change directory to the /release/cstaks/bin directory and run</p><pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">./cstasks console
+<p>Change directory to the _build/default/rel/cstasks/bin directory and run</p><pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">./cstasks console
 </span></code></pre><p>To see all the vailable comands run ./cstasks script without parameters</p><pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">./cstasks
 </span><span class="">Usage: cstasks [COMMAND] [ARGS]
 </span><span class="">Commands:
@@ -180,8 +180,8 @@ Open <a href="http://localhost:1986/">http://localhost:1986/</a> in your browser
   <span class="text">Web frontend test applications screenshots</span>
 </h3>
 <p>Frontend application screenshot calling the JSON API. Notice the input body is in the left textarea and the response body from the API is displayed in the right textarea.
-<img src="" alt="Frontend application screenshot calling the JSON API"/></p><p>Frontend application screenshot calling the &quot;Bash&quot; API. You will be presented with a save/dowload windows. Notice the input body is in the left textarea and the response body from the API is displayed in the right textarea. 
-<img src="" alt="Frontend application screenshot calling the Bash API"/></p><h2 id="manually-testing-the-api" class="section-heading">
+<img src="https://raw.githubusercontent.com/ergenius/cstasks/refs/heads/main/screenshots/calling-json-api-2024-10-07%2021-43-27.png" alt="Frontend application screenshot calling the JSON API"/></p><p>Frontend application screenshot calling the &quot;Bash&quot; API. You will be presented with a save/dowload windows. Notice the input body is in the left textarea and the response body from the API is displayed in the right textarea. 
+<img src="https://raw.githubusercontent.com/ergenius/cstasks/refs/heads/main/screenshots/calling-the-bash-api-2024-10-07%2021-46-12.png" alt="Frontend application screenshot calling the Bash API"/></p><h2 id="manually-testing-the-api" class="section-heading">
   <a href="#manually-testing-the-api" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
@@ -194,111 +194,117 @@ a 400 Bad Request for the existing API routes).</p><h3 id="sort-json" class="sec
   </a>
   <span class="text">Sort JSON</span>
 </h3>
-<p>Request:</p><ul><li>URL: <a href="http://localhost:1986/api/v1/sort/json">http://localhost:1986/api/v1/sort/json</a></li><li>Method: POST</li><li>No special headers are required</li><li>Request body example (JSON):
-'''
-{
-  &quot;tasks&quot;: [<pre><code class="makeup erlang" translate="no"><span class="w">  </span><span class="p" data-group-id="2775056589-1">{</span><span class="w">
-      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
-  </span><span class="p" data-group-id="2775056589-1">}</span><span class="p">,</span><span class="w">
-  </span><span class="p" data-group-id="2775056589-2">{</span><span class="w">
-      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2775056589-3">[</span><span class="w">
-          </span><span class="s">&quot;task-3&quot;</span><span class="w">
-      </span><span class="p" data-group-id="2775056589-3">]</span><span class="w">
-  </span><span class="p" data-group-id="2775056589-2">}</span><span class="p">,</span><span class="w">
-  </span><span class="p" data-group-id="2775056589-4">{</span><span class="w">
-      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2775056589-5">[</span><span class="w">
-          </span><span class="s">&quot;task-1&quot;</span><span class="w">
-      </span><span class="p" data-group-id="2775056589-5">]</span><span class="w">
-  </span><span class="p" data-group-id="2775056589-4">}</span><span class="p">,</span><span class="w">
-  </span><span class="p" data-group-id="2775056589-6">{</span><span class="w">
-      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2775056589-7">[</span><span class="w">
-          </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
-          </span><span class="s">&quot;task-3&quot;</span><span class="w">
-      </span><span class="p" data-group-id="2775056589-7">]</span><span class="w">
-  </span><span class="p" data-group-id="2775056589-6">}</span></code></pre>  ]
-}
-'''</li></ul><p>Response example:
-'''
-{
-  &quot;tasks&quot; : [</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="0980871963-1">{</span><span class="w">
-  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
-</span><span class="p" data-group-id="0980871963-1">}</span><span class="p">,</span><span class="w">
-</span><span class="p" data-group-id="0980871963-2">{</span><span class="w">
-  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="w">
-</span><span class="p" data-group-id="0980871963-2">}</span><span class="p">,</span><span class="w">
-</span><span class="p" data-group-id="0980871963-3">{</span><span class="w">
-  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="w">
-</span><span class="p" data-group-id="0980871963-3">}</span><span class="p">,</span><span class="w">
-</span><span class="p" data-group-id="0980871963-4">{</span><span class="w">
-  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="w">
-</span><span class="p" data-group-id="0980871963-4">}</span></code></pre><p>  ],
-  &quot;sort_time_milliseconds&quot; : 416
-}
-'''</p><h3 id="sort-bash" class="section-heading">
+<p>Request:</p><ul><li>URL: <a href="http://localhost:1986/api/v1/sort/json">http://localhost:1986/api/v1/sort/json</a></li><li>Method: POST</li><li>No special headers are required</li><li>Request body example (JSON):<pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="2175798167-1">{</span><span class="w">
+</span><span class="s">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2175798167-2">[</span><span class="w">
+</span><span class="p" data-group-id="2175798167-3">{</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
+</span><span class="p" data-group-id="2175798167-3">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="2175798167-4">{</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2175798167-5">[</span><span class="w">
+</span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-3&quot;</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="2175798167-5">]</span><span class="w">
+</span><span class="p" data-group-id="2175798167-4">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="2175798167-6">{</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2175798167-7">[</span><span class="w">
+</span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-1&quot;</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="2175798167-7">]</span><span class="w">
+</span><span class="p" data-group-id="2175798167-6">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="2175798167-8">{</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2175798167-9">[</span><span class="w">
+</span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-3&quot;</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="2175798167-9">]</span><span class="w">
+</span><span class="p" data-group-id="2175798167-8">}</span><span class="w">
+</span><span class="p" data-group-id="2175798167-2">]</span><span class="w">
+</span><span class="p" data-group-id="2175798167-1">}</span></code></pre></li></ul><p>Response example:</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="5700580722-1">{</span><span class="w">
+  </span><span class="s">&quot;tasks&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5700580722-2">[</span><span class="w">
+    </span><span class="p" data-group-id="5700580722-3">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
+    </span><span class="p" data-group-id="5700580722-3">}</span><span class="p">,</span><span class="w">
+    </span><span class="p" data-group-id="5700580722-4">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="w">
+    </span><span class="p" data-group-id="5700580722-4">}</span><span class="p">,</span><span class="w">
+    </span><span class="p" data-group-id="5700580722-5">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="w">
+    </span><span class="p" data-group-id="5700580722-5">}</span><span class="p">,</span><span class="w">
+    </span><span class="p" data-group-id="5700580722-6">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="w">
+    </span><span class="p" data-group-id="5700580722-6">}</span><span class="w">
+  </span><span class="p" data-group-id="5700580722-2">]</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;sort_time_milliseconds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">416</span><span class="w">
+</span><span class="p" data-group-id="5700580722-1">}</span></code></pre><h3 id="sort-bash" class="section-heading">
   <a href="#sort-bash" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Sort BASH</span>
 </h3>
-<ul><li>URL: <a href="http://localhost:1986/api/v1/sort/bash">http://localhost:1986/api/v1/sort/bash</a></li><li>Method: POST</li><li>No special headers are required</li><li>Request body example (JSON):
-'''
-{
-  &quot;tasks&quot;: [<pre><code class="makeup erlang" translate="no"><span class="w">  </span><span class="p" data-group-id="6916683919-1">{</span><span class="w">
-      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
-  </span><span class="p" data-group-id="6916683919-1">}</span><span class="p">,</span><span class="w">
-  </span><span class="p" data-group-id="6916683919-2">{</span><span class="w">
-      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6916683919-3">[</span><span class="w">
-          </span><span class="s">&quot;task-3&quot;</span><span class="w">
-      </span><span class="p" data-group-id="6916683919-3">]</span><span class="w">
-  </span><span class="p" data-group-id="6916683919-2">}</span><span class="p">,</span><span class="w">
-  </span><span class="p" data-group-id="6916683919-4">{</span><span class="w">
-      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6916683919-5">[</span><span class="w">
-          </span><span class="s">&quot;task-1&quot;</span><span class="w">
-      </span><span class="p" data-group-id="6916683919-5">]</span><span class="w">
-  </span><span class="p" data-group-id="6916683919-4">}</span><span class="p">,</span><span class="w">
-  </span><span class="p" data-group-id="6916683919-6">{</span><span class="w">
-      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6916683919-7">[</span><span class="w">
-          </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
-          </span><span class="s">&quot;task-3&quot;</span><span class="w">
-      </span><span class="p" data-group-id="6916683919-7">]</span><span class="w">
-  </span><span class="p" data-group-id="6916683919-6">}</span></code></pre>  ]
-}
-'''</li></ul><p>Response example:
-'''
-{
-  &quot;bash&quot; : &quot;#!/usr/bin/env bash\ntouch /tmp/file1\necho 'Hello World!' &gt; /tmp/file1\ncat /tmp/file1\nrm /tmp/file1\n&quot;
-}
-'''</p><h2 id="testing-with-eunit" class="section-heading">
+<ul><li>URL: <a href="http://localhost:1986/api/v1/sort/bash">http://localhost:1986/api/v1/sort/bash</a></li><li>Method: POST</li><li>No special headers are required</li><li>Request body example (JSON):<pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="3408192593-1">{</span><span class="w">
+</span><span class="s">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3408192593-2">[</span><span class="w">
+</span><span class="p" data-group-id="3408192593-3">{</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
+</span><span class="p" data-group-id="3408192593-3">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="3408192593-4">{</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3408192593-5">[</span><span class="w">
+</span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-3&quot;</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="3408192593-5">]</span><span class="w">
+</span><span class="p" data-group-id="3408192593-4">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="3408192593-6">{</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3408192593-7">[</span><span class="w">
+</span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-1&quot;</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="3408192593-7">]</span><span class="w">
+</span><span class="p" data-group-id="3408192593-6">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="3408192593-8">{</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3408192593-9">[</span><span class="w">
+</span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
+</span><span class="err">	</span><span class="err">	</span><span class="s">&quot;task-3&quot;</span><span class="w">
+</span><span class="err">	</span><span class="p" data-group-id="3408192593-9">]</span><span class="w">
+</span><span class="p" data-group-id="3408192593-8">}</span><span class="w">
+</span><span class="p" data-group-id="3408192593-2">]</span><span class="w">
+</span><span class="p" data-group-id="3408192593-1">}</span></code></pre></li></ul><p>Response example:</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="1501616914-1">{</span><span class="w">
+  </span><span class="s">&quot;bash&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#!/usr/bin/env bash\ntouch /tmp/file1\necho &#39;Hello World!&#39; &gt; /tmp/file1\ncat /tmp/file1\nrm /tmp/file1\n&quot;</span><span class="w">
+</span><span class="p" data-group-id="1501616914-1">}</span></code></pre><h2 id="testing-with-eunit" class="section-heading">
   <a href="#testing-with-eunit" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Testing with eunit</span>
 </h2>
-<p>Various eunit tests are provided in /tests/cstasks_tests.erl</p><p>Run</p><pre><code class="makeup erlang" translate="no"><span class="ss">make</span><span class="w"> </span><span class="ss">test</span></code></pre><p>or</p><pre><code class="makeup erlang" translate="no"><span class="p">.</span><span class="o">/</span><span class="ss">rebar3</span><span class="w"> </span><span class="ss">eunit</span></code></pre><h2 id="dependencies" class="section-heading">
+<p>Various eunit tests are provided in /tests/cstasks_tests.erl</p><p>Run</p><pre><code class="makeup erlang" translate="no"><span class="ss">make</span><span class="w"> </span><span class="ss">test</span></code></pre><p>or</p><pre><code class="makeup erlang" translate="no"><span class="p">.</span><span class="o">/</span><span class="ss">rebar3</span><span class="w"> </span><span class="ss">eunit</span></code></pre><h2 id="directory-structure" class="section-heading">
+  <a href="#directory-structure" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Directory structure</span>
+</h2>
+<ul><li>.github - contains Github workflow</li><li>config - contain system configuration source file: sys.config.src and vm.args.src. Most settings are self explanatory and they should work out of the box without changes. However you may want to change the cowboy http listner port for example.</li><li>doc - contains documentation automatically generated from the source code</li><li>include - contains csstask.hrl - included in all project modules. Nothing fancy there, a record, and a few error log macros.</li><li>screenshots - various screnshots of the frontend web application you can use for testing</li><li>src</li><li>src/cs_http_handler_api.erl - Cowboy sorting API handler</li><li>src/cs_http_handler_ww.erl - A custom Cowboy Static file HTTP handler. This handler serve files inside www directory - the frontend Single Page Application written in JavaScript and used to test our solution API. I know cowboy comes with a ready to use handler for serving static files, but again it was fun creating a static file handler that is able to cache the static content into an ETS, serve any IMT known to man, pardon me apache/nginx (the cs_http_imt was build studing Apache/Nginx IMT config files) and a paranoic validation of the request using recursive functions and binaries. Because I must say it's a hobby of mine NOT to use regex.</li><li>src/cs_http_imt.erl This file contain IMT (Internet Media Type) related functions. It is used for detecting proper IMT from files extensions into the cs_http_handler_www module.</li><li>src/cs_json.erl - This is nothing else but a wrapper around jiffy. I added it to the solution to be able to easily change jiffy options</li><li>src/cs_sort_behaiviour.erl -  I created this module to demonstrate how to create a custom behaiviour. To be sincere I love defining new behaiviours despite I'm not much in love with OOP.</li><li>src/cs_sort_kahn.erl - This is the sorting solution based on a modified Kahn algorithm.</li><li>src/cs_sup.erl - main application supervisor</li><li>src/cs_tasks_job.erl - Contains varios helper functions for dealing with a tasks job record</li><li>src/cs_utils.erl - a few utils functions</li><li>src/cs_uuid.erl - This is an exercise to create a uuid. The uuid is based on: local time in microseconds starting from &quot;CraftingSoftware epoch&quot;, some random bytes and a namespace (phash2 of the erlang node atom). When I wanted to insert the tasks job in database I said to myself let's use an uuid instead of that sqlite integer auto incremented primary key and let's have fun and create our own uuid instead of just using a 3rd party uuid erlang library.</li><li>src/cs_validate.erl - Some paranoic validation done on various binaries comming from http requests. &quot;Features&quot;: No conversion to lists is done.</li><li>src/cstasks_app.erl</li><li>src/cstasks_app.src </li><li>test - a few eunit tests you can run with make test</li><li>www - contains the one page web application (html+Javascript+jQuery+Bulma - mobile friendly)</li></ul><h2 id="how-did-i-implemented-the-sort-solution" class="section-heading">
+  <a href="#how-did-i-implemented-the-sort-solution" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">How did I implemented the sort solution?</span>
+</h2>
+<ul><li>It was obviously from the begining this is a graph sorting problem.</li><li>The input data is be a Directed Acyclic Graph (a graph with no cycles) because otherwise we will not be able to solve it and we will end up with circular dependencies and infinite loops.</li><li>The first algorithm that I could think of was the famous Depth First Search</li><li>Searching more information on this subject I came across Kahn algorithm and I found it more interesting to exercise it.</li><li>When chosing in between DFS &amp; Kahn I also took into consideration both the time &amp; space complexity and they are both the same - O(V+E). So from this point of view I thought both could do the job.</li><li>When studying various Kahn examples something &quot;contrived&quot; struck me to use the word from the coding challenge: many implementations examples are based on data that keep track of the CHILDREN dependencies not the FATHER nodes/vertices (our require). This was for me one of the most tricky aspect when solving this problem.</li><li>After writing the basic algorithm I start thinking to some corner case scenarios and implemented them as options or errors.</li><li>In a normal relation with a client I would ask the client about those corner case scenarios but because I had to finish the test in weekend I decided not to bother Vivien from CS with extra questions and simply implement all those corner case scenarios as API options.</li></ul><p>It is also worth mentioning I favored eficiency. Because of this I prefered to mix and implement most validation inside the sort itself in order to avoid extra iterations of the tasks list outside the sort algorithm.</p><p>The corner case scenarios implemented as options are:</p><ul><li>should we allow or not more than 1 source vertice?</li><li>should we allow or not disconected vertices?</li></ul><p>The error (validation) case scenarios are:</p><ul><li>invalid or malformed tasks with missing or invalid names, commands and requires</li><li>we must detect cycles (tasks that are linked to each other in a loop) and we must obviously consider such an input invalid by returning a specific error</li></ul><h2 id="dependencies" class="section-heading">
   <a href="#dependencies" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Dependencies</span>
 </h2>
-<ul><li><a href="https://github.com/ergenius/m_unicode">m_unicode</a></li><li><a href="https://github.com/ninenines/cowboy">cowboy</a></li><li><a href="https://github.com/mmzeeman/esqlite">esqlite</a></li><li><a href="https://s3.amazonaws.com/rebar3/rebar3">rebar3</a></li></ul><h2 id="authors" class="section-heading">
+<ul><li><a href="https://github.com/ergenius/m_unicode">m_unicode</a></li><li><a href="https://github.com/ninenines/cowboy">cowboy</a></li><li><a href="https://s3.amazonaws.com/rebar3/rebar3">rebar3</a></li></ul><h2 id="authors" class="section-heading">
   <a href="#authors" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
