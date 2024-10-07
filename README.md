@@ -6,19 +6,21 @@ Solution for CraftingSoftware
 
 ## Build
 
-The solution is using rebar3. A makefile is also provided.
+The solution is using rebar3. A Makefile is also provided.
 Development took place using OTP 26 release on Ubuntu 22.04.
 Unofficially, you may be able to use this project with older Erlang versions. No guarantee included.
 
-Only one command, compile, is required to fetch dependencies and compile:
-- make compile 
-or
-- rebar3 compile
+Only one command, compile, is required to fetch dependencies and compile (use either make or rebar3):
+```
+make compile 
+rebar3 compile
+```
 
 Create a release:
-- make release
-or
-- rebar3 release
+```
+make release
+rebar3 release
+```
 
 A release is already included into the repo into the /release directory.
 
@@ -70,10 +72,10 @@ On the left side of the screen there is a textarea where you can edit the API in
 ### Web frontend test applications screenshots
 
 Frontend application screenshot calling the JSON API. Notice the input body is in the left textarea and the response body from the API is displayed in the right textarea.
-![Frontend application screenshot calling the JSON API]()
+![Frontend application screenshot calling the JSON API](https://raw.githubusercontent.com/ergenius/cstasks/refs/heads/main/screenshots/calling-json-api-2024-10-07%2021-43-27.png)
 
 Frontend application screenshot calling the "Bash" API. You will be presented with a save/dowload windows. Notice the input body is in the left textarea and the response body from the API is displayed in the right textarea. 
-![Frontend application screenshot calling the Bash API]()
+![Frontend application screenshot calling the Bash API](https://raw.githubusercontent.com/ergenius/cstasks/refs/heads/main/screenshots/calling-the-bash-api-2024-10-07%2021-46-12.png)
 
 ## Manually testing the API 
 
@@ -87,7 +89,7 @@ Request:
 - Method: POST
 - No special headers are required
 - Request body example (JSON):
-'''
+```
 {
 	"tasks": [
 		{
@@ -118,10 +120,10 @@ Request:
 		}
 	]
 }
-'''
+```
 
 Response example:
-'''
+```
 {
   "tasks" : [
     {
@@ -143,7 +145,7 @@ Response example:
   ],
   "sort_time_milliseconds" : 416
 }
-'''
+```
 
 ### Sort BASH
 
@@ -151,7 +153,7 @@ Response example:
 - Method: POST
 - No special headers are required
 - Request body example (JSON):
-'''
+```
 {
 	"tasks": [
 		{
@@ -182,14 +184,14 @@ Response example:
 		}
 	]
 }
-'''
+```
 
 Response example:
-'''
+```
 {
   "bash" : "#!/usr/bin/env bash\ntouch /tmp/file1\necho 'Hello World!' > /tmp/file1\ncat /tmp/file1\nrm /tmp/file1\n"
 }
-'''
+```
 
 ## Testing with eunit
 
@@ -213,7 +215,7 @@ or
 - screenshots - various screnshots of the frontend web application you can use for testing
 - src
 - src/cs_http_handler_api.erl - Cowboy sorting API handler
-- src/cs_http_handler_www.erl - A custom Cowboy Static file HTTP handler. This handler serve files inside www directory - the frontend Single Page Application written in JavaScript and used to test our solution API. I know cowboy comes with a ready to use handler for serving static files, but again it was fun creating a static file handler that is able to cache the static content into an ETS, serve any IMT known to man, pardon me apache/nginx (the cs_http_imt was build studing Apache/Nginx IMT config files) and a paranoic validation of the request using recursive functions and binaries. Because I must say it's a hobby of mine NOT to use regex.
+- src/cs_http_handler_ww.erl - A custom Cowboy Static file HTTP handler. This handler serve files inside www directory - the frontend Single Page Application written in JavaScript and used to test our solution API. I know cowboy comes with a ready to use handler for serving static files, but again it was fun creating a static file handler that is able to cache the static content into an ETS, serve any IMT known to man, pardon me apache/nginx (the cs_http_imt was build studing Apache/Nginx IMT config files) and a paranoic validation of the request using recursive functions and binaries. Because I must say it's a hobby of mine NOT to use regex.
 - src/cs_http_imt.erl This file contain IMT (Internet Media Type) related functions. It is used for detecting proper IMT from files extensions into the cs_http_handler_www module.
 - src/cs_json.erl - This is nothing else but a wrapper around jiffy. I added it to the solution to be able to easily change jiffy options
 - src/cs_sort_behaiviour.erl -  I created this module to demonstrate how to create a custom behaiviour. To be sincere I love defining new behaiviours despite I'm not much in love with OOP.
