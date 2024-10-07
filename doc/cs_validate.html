@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.32.2">
+    <meta name="project" content="cstasks v1">
+
+
+    <title>cs_validate — cstasks v1</title>
+    <link rel="stylesheet" href="dist/html-erlang-EBZIIHAS.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-AB896366.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-BHYOTRCH.js"></script>
+
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="https://github.com/ergenius/cstasks" class="sidebar-projectName" translate="no">
+cstasks
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of cstasks</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/ergenius/cstasks/blob/v1/src/cs_validate.erl#L6" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+    <span translate="no">cs_validate</span> 
+    <small class="app-vsn" translate="no">(cstasks v1)</small>
+
+  </h1>
+
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#safe_domain_extension/1" data-no-tooltip translate="no">safe_domain_extension(Ext)</a>
+
+      </div>
+
+        <div class="summary-synopsis">Check domain extension Extension must contain at least one alpha numeric character. Characters are converted from upper case to lower case in the same iteration and sanitized binary is returned.</div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#safe_http_www_path/1" data-no-tooltip translate="no">safe_http_www_path(Path)</a>
+
+      </div>
+
+        <div class="summary-synopsis">Check and sanitize the specified request path. Returns the lower case path, the extension if any and the last character of the path. Those are very usefull to the caller when resolving the path. It is interesting that i couldn't find any scenario when a path using other validation rules is nedeed except in well known exploits and crappy php. With those simple rules we can quickly filter out a huge ammount of exploits scans.</div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#safe_sub_domain_name/1" data-no-tooltip translate="no">safe_sub_domain_name(Hostname)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Check the specified domain name for injection So called &quot;safe domain names&quot; must contain only ASCII alpha-numeric characters, -, and one . before the alphanumeric extension.</p></div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="safe_domain_extension/1">
+
+  <div class="detail-header">
+    <a href="#safe_domain_extension/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">safe_domain_extension(Ext)</h1>
+
+      <a href="https://github.com/ergenius/cstasks/blob/v1/src/cs_validate.erl#L104" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+Check domain extension Extension must contain at least one alpha numeric character. Characters are converted from upper case to lower case in the same iteration and sanitized binary is returned.
+  </section>
+</section>
+<section class="detail" id="safe_http_www_path/1">
+
+  <div class="detail-header">
+    <a href="#safe_http_www_path/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">safe_http_www_path(Path)</h1>
+
+      <a href="https://github.com/ergenius/cstasks/blob/v1/src/cs_validate.erl#L32" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> safe_http_www_path(Path) -> {ok, SanitizedPath, Extension, LastCharacter} | {error, Reason}
+                            when
+                                Path :: <a href="https://www.erlang.org/doc/man/erlang.html#type-binary">binary</a>(),
+                                SanitizedPath :: <a href="https://www.erlang.org/doc/man/erlang.html#type-binary">binary</a>(),
+                                Extension :: undefined | <a href="https://www.erlang.org/doc/man/erlang.html#type-binary">binary</a>(),
+                                LastCharacter :: undefined | <a href="https://www.erlang.org/doc/man/erlang.html#type-integer">integer</a>(),
+                                Reason :: <a href="https://www.erlang.org/doc/man/erlang.html#type-atom">atom</a>().</pre>
+
+      </div>
+
+Check and sanitize the specified request path. Returns the lower case path, the extension if any and the last character of the path. Those are very usefull to the caller when resolving the path. It is interesting that i couldn't find any scenario when a path using other validation rules is nedeed except in well known exploits and crappy php. With those simple rules we can quickly filter out a huge ammount of exploits scans.
+  </section>
+</section>
+<section class="detail" id="safe_sub_domain_name/1">
+
+  <div class="detail-header">
+    <a href="#safe_sub_domain_name/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">safe_sub_domain_name(Hostname)</h1>
+
+      <a href="https://github.com/ergenius/cstasks/blob/v1/src/cs_validate.erl#L141" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Check the specified domain name for injection So called &quot;safe domain names&quot; must contain only ASCII alpha-numeric characters, -, and one . before the alphanumeric extension.</p><p>A safe domain name example: sub-domain.domain-name.extension</p>Invalid domain names: name invalid-name -invalid-name invalid--name invalid-name. invalid..extension .invalid
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+          <span class="line">
+            <a href="https://hex.pm/packages/cstasks/1" class="footer-hex-package">Hex Package</a>
+
+            <a href="https://preview.hex.pm/preview/cstasks/1">Hex Preview</a>
+
+          </span>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="cstasks.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.32.2) for the
+
+          <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+
+  </body>
+</html>

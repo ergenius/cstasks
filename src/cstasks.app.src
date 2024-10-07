@@ -1,0 +1,66 @@
+{application, cstasks,
+ [
+  {description, "CS Tasks Solution"},
+  {vsn, "1"},
+  {modules, [
+	  cstasks_app,
+	  cs_sup
+      ]},
+  {mod,{cstasks_app,[]}},
+  {registered, []},
+  {applications, [
+	  %% A byte code compiler for Erlang which produces highly compact code
+	  %% compiler,
+	  %% Functionality necessary to run the Erlang System itself
+	  erts,
+	  %% Functionality necessary to run the Erlang System itself
+	  kernel,
+	  %% The System Architecture Support Libraries is a set of tools for release upgrades and alarm handling etc.
+	  sasl,
+	  %% The Erlang standard libraries
+	  stdlib,
+	  %% A heavy duty real-time distributed database
+	  %% mnesia,
+	  %% An interface to relational SQL-databases built on ODBC (Open Database Connectivity).
+	  %% odbc,
+	  %% A monitor which allows inspection of the underlying operating system
+	  os_mon,
+	  %% Simple Network Management Protocol (SNMP) support including a MIB compiler and tools for creating SNMP agents
+	  %% snmp,
+	  %% Provides support for Abstract Syntax Notation One
+	  %% asn1,
+	  %% Cryptographical support
+	  crypto,
+	  %% Diameter
+	  %% diameter,
+	  %% Erlang LDAP library
+	  %% eldap,
+	  %% Low level interface to C
+	  erl_interface,
+	  %% FTP client
+	  %% ftp,
+	  %% A set of services such as a Web server and a ftp client etc.
+	  %% inets,
+	  %% Low level interface to Java
+	  %%jinterface,
+	  %% Megaco/H.248 is a protocol for control of elements in a physically decomposed multimedia gateway, enabling separation of call control from media conversion.
+	  %% megaco,
+	  %% API to public key infrastructure.
+	  %% public_key,
+	  %% Secure Shell application with sftp and ssh support
+	  %% ssh,
+	  %% Secure Socket Layer.
+	  ssl,
+	  %% TFTP application
+	  %% tftp,
+	  %% A Graphics System used to write platform independent user interfaces
+	  %% wx,
+	  %% Provides support for XML 1.0
+	  %% xmerl,
+	  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	  m_unicode,
+	  cowboy, 
+	  jiffy
+  ]},
+  {env, []}
+ ]}.

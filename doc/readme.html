@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.32.2">
+    <meta name="project" content="cstasks v1">
+
+
+    <title>Overview — cstasks v1</title>
+    <link rel="stylesheet" href="dist/html-erlang-EBZIIHAS.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-AB896366.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-BHYOTRCH.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="https://github.com/ergenius/cstasks" class="sidebar-projectName" translate="no">
+cstasks
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of cstasks</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/ergenius/cstasks/blob/v1/README.md#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+
+    <span>cstasks</span>
+  </h1>
+
+<p>Solution for CraftingSoftware</p><p><a href="https://github.com/ergenius/cstasks/actions/workflows/erlang.yml"><img src="https://github.com/ergenius/cstasks/actions/workflows/erlang.yml/badge.svg" alt="Erlang CI"/></a></p><h2 id="build" class="section-heading">
+  <a href="#build" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Build</span>
+</h2>
+<p>The solution is using rebar3. A makefile is also provided.
+Development took place using OTP 26 release on Ubuntu 22.04.
+Unofficially, you may be able to use this project with older Erlang versions. No guarantee included.</p><p>Only one command, compile, is required to fetch dependencies and compile:</p><ul><li>make compile 
+or</li><li>rebar3 compile</li></ul><p>Create a release:</p><ul><li>make release
+or</li><li>rebar3 release</li></ul><p>A release is already included into the repo into the /release directory.</p><h2 id="running-the-solution" class="section-heading">
+  <a href="#running-the-solution" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Running the solution</span>
+</h2>
+<p>Change directory to the /release/cstaks/bin directory and run</p><pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">./cstasks console
+</span></code></pre><p>To see all the vailable comands run ./cstasks script without parameters</p><pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">./cstasks
+</span><span class="">Usage: cstasks [COMMAND] [ARGS]
+</span><span class="">Commands:
+</span><span class="">  foreground              Start release with output to stdout
+</span><span class="">  remote_console          Connect remote shell to running node
+</span><span class="">  rpc [Mod [Fun [Args]]]] Run apply(Mod, Fun, Args) on running node
+</span><span class="">  eval [Exprs]            Run expressions on running node
+</span><span class="">  stop                    Stop the running node
+</span><span class="">  restart                 Restart the applications but not the VM
+</span><span class="">  reboot                  Reboot the entire VM
+</span><span class="">  pid                     Print the PID of the OS process
+</span><span class="">  ping                    Print pong if the node is alive
+</span><span class="">  console                 Start the release with an interactive shell
+</span><span class="">  console_clean           Start an interactive shell without the release&#39;s applications
+</span><span class="">  console_boot [File]     Start an interactive shell for boot script [File]
+</span><span class="">  daemon                  Start release in the background with run_erl (named pipes)
+</span><span class="">  daemon_boot [File]      Start boot script [File] in the background with run_erl (named pipes)
+</span><span class="">  daemon_attach           Connect to node started as daemon with to_erl (named pipes)
+</span><span class="">  upgrade [Version]       Upgrade the running release to a new version
+</span><span class="">  downgrade [Version]     Downgrade the running release to a new version
+</span><span class="">  install [Version]       Install a release
+</span><span class="">  uninstall [Version]     Uninstall a release
+</span><span class="">  unpack [Version]        Unpack a release tarball
+</span><span class="">  versions                Print versions of the release available
+</span><span class="">  escript                 Run an escript in the same environment as the release
+</span><span class="">  status                  Verify node is running and then run status hook scripts
+</span><span class="">  undefined
+</span></code></pre><h2 id="testing-the-solution-using-the-provided-web-frontend-application" class="section-heading">
+  <a href="#testing-the-solution-using-the-provided-web-frontend-application" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Testing the solution using the provided web frontend application</span>
+</h2>
+<p>The csapplication application starts a webserver listening to localhost on port 1986 (the year Erlang was released).
+Open <a href="http://localhost:1986/">http://localhost:1986/</a> in your browser and you will be presented with a frontend application that you can use to test the API. The web application is self explanatory. </p><p>On the left side of the screen there is a textarea where you can edit the API input parameters. You can test the default input parameters mentioned into the problem or you can paste your own JSON. To test the default simply click on the button</p><h3 id="web-frontend-test-applications-screenshots" class="section-heading">
+  <a href="#web-frontend-test-applications-screenshots" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Web frontend test applications screenshots</span>
+</h3>
+<p>Frontend application screenshot calling the JSON API. Notice the input body is in the left textarea and the response body from the API is displayed in the right textarea.
+<img src="" alt="Frontend application screenshot calling the JSON API"/></p><p>Frontend application screenshot calling the &quot;Bash&quot; API. You will be presented with a save/dowload windows. Notice the input body is in the left textarea and the response body from the API is displayed in the right textarea. 
+<img src="" alt="Frontend application screenshot calling the Bash API"/></p><h2 id="manually-testing-the-api" class="section-heading">
+  <a href="#manually-testing-the-api" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Manually testing the API</span>
+</h2>
+<p>The following API routes are available (it is important to use the proper method POST otherwise you will receive
+a 400 Bad Request for the existing API routes).</p><h3 id="sort-json" class="section-heading">
+  <a href="#sort-json" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Sort JSON</span>
+</h3>
+<p>Request:</p><ul><li>URL: <a href="http://localhost:1986/api/v1/sort/json">http://localhost:1986/api/v1/sort/json</a></li><li>Method: POST</li><li>No special headers are required</li><li>Request body example (JSON):
+'''
+{
+  &quot;tasks&quot;: [<pre><code class="makeup erlang" translate="no"><span class="w">  </span><span class="p" data-group-id="2775056589-1">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
+  </span><span class="p" data-group-id="2775056589-1">}</span><span class="p">,</span><span class="w">
+  </span><span class="p" data-group-id="2775056589-2">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2775056589-3">[</span><span class="w">
+          </span><span class="s">&quot;task-3&quot;</span><span class="w">
+      </span><span class="p" data-group-id="2775056589-3">]</span><span class="w">
+  </span><span class="p" data-group-id="2775056589-2">}</span><span class="p">,</span><span class="w">
+  </span><span class="p" data-group-id="2775056589-4">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2775056589-5">[</span><span class="w">
+          </span><span class="s">&quot;task-1&quot;</span><span class="w">
+      </span><span class="p" data-group-id="2775056589-5">]</span><span class="w">
+  </span><span class="p" data-group-id="2775056589-4">}</span><span class="p">,</span><span class="w">
+  </span><span class="p" data-group-id="2775056589-6">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2775056589-7">[</span><span class="w">
+          </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
+          </span><span class="s">&quot;task-3&quot;</span><span class="w">
+      </span><span class="p" data-group-id="2775056589-7">]</span><span class="w">
+  </span><span class="p" data-group-id="2775056589-6">}</span></code></pre>  ]
+}
+'''</li></ul><p>Response example:
+'''
+{
+  &quot;tasks&quot; : [</p><pre><code class="makeup erlang" translate="no"><span class="p" data-group-id="0980871963-1">{</span><span class="w">
+  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
+</span><span class="p" data-group-id="0980871963-1">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="0980871963-2">{</span><span class="w">
+  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="w">
+</span><span class="p" data-group-id="0980871963-2">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="0980871963-3">{</span><span class="w">
+  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="w">
+</span><span class="p" data-group-id="0980871963-3">}</span><span class="p">,</span><span class="w">
+</span><span class="p" data-group-id="0980871963-4">{</span><span class="w">
+  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;command&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="w">
+</span><span class="p" data-group-id="0980871963-4">}</span></code></pre><p>  ],
+  &quot;sort_time_milliseconds&quot; : 416
+}
+'''</p><h3 id="sort-bash" class="section-heading">
+  <a href="#sort-bash" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Sort BASH</span>
+</h3>
+<ul><li>URL: <a href="http://localhost:1986/api/v1/sort/bash">http://localhost:1986/api/v1/sort/bash</a></li><li>Method: POST</li><li>No special headers are required</li><li>Request body example (JSON):
+'''
+{
+  &quot;tasks&quot;: [<pre><code class="makeup erlang" translate="no"><span class="w">  </span><span class="p" data-group-id="6916683919-1">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-1&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;touch /tmp/file1&quot;</span><span class="w">
+  </span><span class="p" data-group-id="6916683919-1">}</span><span class="p">,</span><span class="w">
+  </span><span class="p" data-group-id="6916683919-2">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cat /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6916683919-3">[</span><span class="w">
+          </span><span class="s">&quot;task-3&quot;</span><span class="w">
+      </span><span class="p" data-group-id="6916683919-3">]</span><span class="w">
+  </span><span class="p" data-group-id="6916683919-2">}</span><span class="p">,</span><span class="w">
+  </span><span class="p" data-group-id="6916683919-4">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-3&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo &#39;Hello World!&#39; &gt; /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6916683919-5">[</span><span class="w">
+          </span><span class="s">&quot;task-1&quot;</span><span class="w">
+      </span><span class="p" data-group-id="6916683919-5">]</span><span class="w">
+  </span><span class="p" data-group-id="6916683919-4">}</span><span class="p">,</span><span class="w">
+  </span><span class="p" data-group-id="6916683919-6">{</span><span class="w">
+      </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;task-4&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rm /tmp/file1&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="s">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6916683919-7">[</span><span class="w">
+          </span><span class="s">&quot;task-2&quot;</span><span class="p">,</span><span class="w">
+          </span><span class="s">&quot;task-3&quot;</span><span class="w">
+      </span><span class="p" data-group-id="6916683919-7">]</span><span class="w">
+  </span><span class="p" data-group-id="6916683919-6">}</span></code></pre>  ]
+}
+'''</li></ul><p>Response example:
+'''
+{
+  &quot;bash&quot; : &quot;#!/usr/bin/env bash\ntouch /tmp/file1\necho 'Hello World!' &gt; /tmp/file1\ncat /tmp/file1\nrm /tmp/file1\n&quot;
+}
+'''</p><h2 id="testing-with-eunit" class="section-heading">
+  <a href="#testing-with-eunit" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Testing with eunit</span>
+</h2>
+<p>Various eunit tests are provided in /tests/cstasks_tests.erl</p><p>Run</p><pre><code class="makeup erlang" translate="no"><span class="ss">make</span><span class="w"> </span><span class="ss">test</span></code></pre><p>or</p><pre><code class="makeup erlang" translate="no"><span class="p">.</span><span class="o">/</span><span class="ss">rebar3</span><span class="w"> </span><span class="ss">eunit</span></code></pre><h2 id="dependencies" class="section-heading">
+  <a href="#dependencies" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Dependencies</span>
+</h2>
+<ul><li><a href="https://github.com/ergenius/m_unicode">m_unicode</a></li><li><a href="https://github.com/ninenines/cowboy">cowboy</a></li><li><a href="https://github.com/mmzeeman/esqlite">esqlite</a></li><li><a href="https://s3.amazonaws.com/rebar3/rebar3">rebar3</a></li></ul><h2 id="authors" class="section-heading">
+  <a href="#authors" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Authors</span>
+</h2>
+<ul><li>Madalin Grigore-Enescu (ergenius) - <a href="https://github.com/ergenius">Github</a> <a href="<https://ergenius.com>">ergenius.com</a></li></ul><h2 id="license" class="section-heading">
+  <a href="#license" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">License</span>
+</h2>
+<p>cstasks is available under the MIT license (see <code class="inline">LICENSE</code>).</p>
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="api-reference.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+API Reference
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="license.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+License
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+          <span class="line">
+            <a href="https://hex.pm/packages/cstasks/1" class="footer-hex-package">Hex Package</a>
+
+            <a href="https://preview.hex.pm/preview/cstasks/1">Hex Preview</a>
+
+              (<a href="https://preview.hex.pm/preview/cstasks/1/show/README.md">current file</a>)
+
+          </span>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="cstasks.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.32.2) for the
+
+          <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+
+  </body>
+</html>
